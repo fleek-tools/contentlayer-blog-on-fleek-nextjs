@@ -1,6 +1,6 @@
 # Next.js + Contentlayer
 A template with Next.js 13 app dir, Contentlayer, Tailwind CSS and dark mode.
-https://future-animal-colossal.functions.on-fleek.app/
+https://scarce-ram-skinny.functions.stg.on-fleek-test.app/
 
 ## Prerequisites 
 - Node 18+
@@ -30,23 +30,29 @@ npm i @fleek-platform/next
 npm i -g @fleek-platform/cli
 npm i -g @fleek-platform/next
 ```
-💡: you can check the Fleek CLI version by running fleek -v. Any version >= 2.10.1 should be good. As for the Fleek Next adapter, you can check the Fleek Next Adapter version by running fleek-next -v. Any version >= 1.0.6 should be good.
+💡: you can check the Fleek CLI version by running fleek -v. Any version >= 2.10.1 should be good. As for the Fleek Next adapter, you can check the Fleek Next Adapter version by running fleek-next -v. Any version >= 2.10.1 should be good.
 
 ## Building and Deploying on Fleek
 
-Get a PAT (Personal Access Token). Run `fleek PAT create`, give it a name, login in to the platform, and copy your PAT.
-
-Then run `export FLEEK_TOKEN=<your personal access token>` in your terminal to set your environment variables.
-
-
-Then create a project ID. Run `fleek projects create`, give it a name, and copy your ID.
-
-Then create a `fleek.json` file. Paste this in:
-
+1. Build the project using the Fleek Next Adapter:
 ```bash
-{
-    "FLEEK_PROJECT_ID": "<project_id>"
-}
+npx fleek-next build
+# or if installed globally
+fleek-next build
 ```
+2. Now, Create the Fleek Function using the Fleek CLI:
+```bash
+//syntax
+fleek functions create --name '<name of your function>'
 
-Then run `fleek-next deploy`
+//example
+fleek functions create --name contentlayer
+```
+3. Finally, deploy using the Fleek CLI:
+```bash
+
+//syntax
+fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static --name '<name of your function>'
+
+//example
+fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static --name contentlayer
