@@ -1,7 +1,6 @@
 # Next.js + Contentlayer
 A template with Next.js 13 app dir, Contentlayer, Tailwind CSS and dark mode.
-https://scarce-ram-skinny.functions.stg.on-fleek-test.app/
-
+https://billions-parrot-rhythmic.functions.on-fleek.app/
 ## Prerequisites 
 - Node 18+
 - Fleek Account
